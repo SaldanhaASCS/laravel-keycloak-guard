@@ -6,8 +6,9 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Http\Request;
 use KeycloakGuard\Exceptions\TokenException;
-use KeycloakGuard\Exceptions\UserNotFoundException;
 use KeycloakGuard\Exceptions\ResourceAccessNotAllowedException;
+use App\User;
+use Illuminate\Support\Str;
 
 class KeycloakGuard implements Guard
 {
@@ -127,7 +128,11 @@ class KeycloakGuard implements Guard
       $user = $this->provider->retrieveByCredentials($credentials);
 
       if (!$user) {
-        throw new UserNotFoundException("User not found. Credentials: " . json_encode($credentials));
+        $user = User::create([
+          'email' => $this->decodedToken->email,
+          'name' => $this->decodedToken->name,
+          'password' => bcrypt(Str::random(10)),
+          ]);
       }
     } else {
       $class = $this->provider->getModel();
