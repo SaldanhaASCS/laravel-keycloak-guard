@@ -3,9 +3,6 @@
 </p>
 <p align="center">
 &nbsp;
-        <img src="https://img.shields.io/packagist/v/robsontenorio/laravel-keycloak-guard.svg" />
-        <img src="https://img.shields.io/packagist/dt/robsontenorio/laravel-keycloak-guard.svg" />
-
 </p>
 
 # Simple Keycloak Guard for Laravel / Lumen
