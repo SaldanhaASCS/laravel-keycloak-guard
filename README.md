@@ -96,7 +96,7 @@ return [
 
   'append_decoded_token' => env('KEYCLOAK_APPEND_DECODED_TOKEN', true),
 
-  'allowed_resources' => env('KEYCLOAK_ALLOWED_RESOURCES', account)
+  'allowed_resources' => env('KEYCLOAK_ALLOWED_RESOURCES', 'account')
 ];
 
 ```
