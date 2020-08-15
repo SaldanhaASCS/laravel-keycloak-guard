@@ -58,7 +58,7 @@ This package helps you authenticate users on a Laravel API based on JWT tokens g
 Require the package
 
 ```
-composer require robsontenorio/laravel-keycloak-guard
+composer require saldanhaascs/laravel-keycloak-guard
 ```
 
 Publish the config file
@@ -88,18 +88,18 @@ The Keycloak Guard configuration can be handled from Laravel `.env` file. ⚠️
 ```php
 <?php
 
-return [  
+return [
   'realm_public_key' => env('KEYCLOAK_REALM_PUBLIC_KEY', null),
 
   'load_user_from_database' => env('KEYCLOAK_LOAD_USER_FROM_DATABASE', true),
 
-  'user_provider_credential' => env('KEYCLOAK_USER_PROVIDER_CREDENTIAL', 'username'),
+  'user_provider_credential' => env('KEYCLOAK_USER_PROVIDER_CREDENTIAL', 'email'),
 
-  'token_principal_attribute' => env('KEYCLOAK_TOKEN_PRINCIPAL_ATTRIBUTE', 'preferred_username'),
+  'token_principal_attribute' => env('KEYCLOAK_TOKEN_PRINCIPAL_ATTRIBUTE', 'email'),
 
-  'append_decoded_token' => env('KEYCLOAK_APPEND_DECODED_TOKEN', false),
+  'append_decoded_token' => env('KEYCLOAK_APPEND_DECODED_TOKEN', true),
 
-  'allowed_resources' => env('KEYCLOAK_ALLOWED_RESOURCES', null)
+  'allowed_resources' => env('KEYCLOAK_ALLOWED_RESOURCES', account)
 ];
 
 ```
@@ -108,7 +108,7 @@ return [
 
 *Required.*
 
-The Keycloak Server realm public key (string).
+The Keycloak Server realm public key (string). Click on your REALM-> TAB KEYS-> Public Key.
 
 ✔️ **load_user_from_database**
 
@@ -120,14 +120,14 @@ It fetchs user from database and fill values into authenticated user object. If 
 
 ✔️ **user_provider_credential**
 
-*Required. Default is `username`.*
+*Required. Default is `email`.*
 
 
 The field from "users" table that contains the user unique identifier (eg.  username, email, nickname). This will be confronted against  `token_principal_attribute` attribute, while authenticating.
 
 ✔️ **token_principal_attribute**
 
-*Required. Default is `preferred_username`.*
+*Required. Default is `email`.*
 
 The property from JWT token that contains the user identifier.
 This will be confronted against  `user_provider_credential` attribute, while authenticating.
@@ -142,7 +142,11 @@ Appends to the authenticated user the full decoded JWT token. Useful if you need
 
 *Required*
 
-Usually you API should handle one *resource_access*. But, if you handle multiples, just use a comma separated list of allowed resources accepted by API. This attribute will be confronted against `resource_access` attribute from JWT token, while authenticating.
+Usually you API should handle one *resource_access*. But, if you handle multiples, just use a comma separated list of allowed resources accepted by API. This attribute will be confronted against `resource_access` attribute from JWT token, while authenticating. Example: account,client_id_keycloak_server. To know your resource_access that comes in the token use https://jwt.io/#debugger-io.
+
+*Default is `account`.*
+
+The Default is `account` so that users who do not have roles associated with their client_id can be registered in the Laravel database.
 
 ## Laravel Auth
 
@@ -243,4 +247,4 @@ Auth::hasRole('myapp-backend', 'myapp-frontend-role1') => false
 
 # Contact
 
-Twitter [@robsontenorio](https://twitter.com/robsontenorio)
+Twitter [@SaBaLAkU](https://twitter.com/sabalaku)

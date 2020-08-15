@@ -1,15 +1,15 @@
 {
-    "name": "robsontenorio/laravel-keycloak-guard",
+    "name": "saldanhaascs/laravel-keycloak-guard",
     "description": "🔑 Simple Keycloak Guard for Laravel",
     "keywords": [
         "laravel",
         "keycloak"
     ],
-    "homepage": "https://github.com/robsontenorio/laravel-keycloak-guard",
+    "homepage": "https://github.com/saldanhaascs/laravel-keycloak-guard",
     "license": "MIT",
     "authors": [
         {
-            "name": "Robson Tenório"
+            "name": "Alison Souza"
         }
     ],
     "minimum-stability": "dev",
