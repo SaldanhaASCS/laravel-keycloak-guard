@@ -1,6 +1,6 @@
 {
     "name": "saldanhaascs/laravel-keycloak-guard",
-    "description": "🔑 Simple Keycloak Guard for Laravel",
+    "description": "🔑 Simple Keycloak Guard for Laravel >=8",
     "keywords": [
         "laravel",
         "keycloak"

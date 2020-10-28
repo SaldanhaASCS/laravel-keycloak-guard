@@ -5,14 +5,14 @@
 &nbsp;
 </p>
 
-# Simple Keycloak Guard for Laravel / Lumen
+# Simple Keycloak Guard for Laravel 8 / Lumen
 
 This package helps you authenticate users on a Laravel API based on JWT tokens generated from  **Keycloak Server**.
 
 
 # Requirements
 
-✔️ I`m building an API with Laravel.
+✔️ I`m building an API with Laravel >=8.
 
 ✔️ I will not use Laravel Passport for authentication, because Keycloak Server will do the job.
 

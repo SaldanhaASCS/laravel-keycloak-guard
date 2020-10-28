@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Http\Request;
 use KeycloakGuard\Exceptions\TokenException;
 use KeycloakGuard\Exceptions\ResourceAccessNotAllowedException;
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Str;
 
 class KeycloakGuard implements Guard
